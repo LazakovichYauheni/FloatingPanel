@@ -376,13 +376,7 @@ public class SurfaceView: UIView {
             return
         }
         containerView.layer.masksToBounds = true
-        if position.inset(containerMargins) != 0 {
-            if #available(iOS 11, *) {
-                containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner,
-                                                     .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-            }
-            return
-        }
+
         if #available(iOS 11, *) {
             // Don't use `contentView.clipToBounds` because it prevents content view from expanding the height of a subview of it
             // for the bottom overflow like Auto Layout settings of UIVisualEffectView in Main.storyboard of Example/Maps.
